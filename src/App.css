@@ -1,7 +1,7 @@
 
 
 .todo-container {
-  max-width: 500px;
+  max-width: 400px;
   margin: 20px auto;
   padding: 20px;
   background-color: #f8f9fa;
@@ -10,16 +10,115 @@
   font-family: Arial, sans-serif;
 }
 
-input {
-  padding: 8px;
-  margin: 5px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+.task-sections {
+  margin-top: 20px;
+}
+
+.task-list h2,
+.completed-list h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.form-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.error-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.er {
+  color: red;
+  font-weight: bold;
+  text-align: left;
+  flex: 1;
+}
+
+.err {
+  color: red;
+  font-weight: bold;
+  text-align: right;
+  flex: 1;
+ padding-top: 5px;
+  padding-right: 70px;
+  
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.task-left input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+.task-left span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-left input[type="text"],
+.task-left select {
+  padding: 6px;
+  min-width: 100px;
+  flex: 1 1 120px;
+}
+
+.task-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.priority-high,
+.priority-medium,
+.priority-low {
+  font-weight: bold;
+  min-width: 70px;
+}
+
+.priority-high {
+  color: red;
+}
+.priority-medium {
+  color: orange;
+}
+.priority-low {
+  color: green;
 }
 
 button {
-  padding: 8px 12px;
-  margin: 5px;
+  padding: 6px 12px;
   border: none;
   border-radius: 6px;
   background-color: #007bff;
@@ -32,20 +131,114 @@ button:hover {
   background-color: #0056b3;
 }
 
-.task-item {
+.delete-button {
+  background-color: #dc3545;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+input[type="text"],
+select {
   padding: 8px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  margin: 5px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
-.edit-section {
+ .error {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+ }
+
+.err{
+  color: red;
+  font-weight: bold;
+  text-align: right;
+  margin-top:10px;
+  margin-right: 5px;
+}
+.er{
+  color: red;
+  font-weight: bold;
+  text-align: left;
+}
+
+.toggle-bar {
+  position: relative;
+  display: flex;
+  margin: 20px 0;
+  background-color: #e0e0e0;
+  border-radius: 30px;
+  overflow: hidden;
+  height: 40px;
+}
+
+.toggle-bar button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.3s;
+}
+
+.toggle-bar button.active {
+  color: white;
+  font-weight: bold;
+}
+
+.toggle-bar .slider {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-color: #007bff;
+  top: 0;
+  left: 0;
+  transition: left 0.3s ease;
+  border-radius: 30px;
+  z-index: 0;
+}
+
+.toggle-bar .slider.completedtask {
+  left: 50%;
+}
+
+
+
+
+
+.pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.popup {
+  background-color: white;
+  padding: 20px 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
   margin-top: 20px;
-  padding: 10px;
-  background-color: #e9ecef;
-  border-radius: 8px;
 }
 
-
-
+.popup-buttons button {
+  padding: 5px 20px;
+  cursor: pointer;
+}
